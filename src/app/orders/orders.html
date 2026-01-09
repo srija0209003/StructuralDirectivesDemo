@@ -1,0 +1,23 @@
+<div>
+    <select [(ngModel)]="orderstatus">
+        <option value="select">Select Below</option>
+        <option value="placed">Placed</option>
+        <option value="shipped">Shipped</option>
+        <option value="pending">Pending</option>
+        <option value="delivered">Delivered</option>
+    </select>
+</div>
+<div [ngSwitch]="orderstatus">
+    <img *ngSwitchCase="'placed'" src="assets/orderplaced.webp" alt="placed" width="120">
+    <img *ngSwitchCase="'shipped'" src="assets/ordershipped.webp" alt="shipped" width="120">
+    <img *ngSwitchCase="'pending'" src="assets/pending.jpg" alt="pending" width="120">
+    <img *ngSwitchCase="'delivered'" src="assets/delivered.webp" alt="delivered" width="120">
+    
+</div>
+<div [ngSwitch]="orderstatus">
+<p *ngSwitchCase="'placed'">Your order status: Order Placed</p>
+<p *ngSwitchCase="'shipped'">Your order status: Order Shipped</p>
+<p *ngSwitchCase="'pending'">Your order status: Order Pending</p>
+<p *ngSwitchCase="'delivered'">Your order status: Order Delivered</p>
+<p *ngSwitchDefault>Unknown</p>
+</div>

@@ -1,0 +1,15 @@
+.newitems{
+    color:orange;
+    font-weight: 300;
+    font-style: italic;
+}
+.completeditems{
+    color:green;
+    font-weight: 500;
+    font-style: normal;
+}
+.itemsinprogress{
+    color:blue;
+    font-weight: 400;
+    font-style: normal;
+}

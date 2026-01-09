@@ -1,0 +1,41 @@
+<p [ngStyle]="{color:discontinued?'red':'green', fontWeight:'bold',innerHTML:'Not Available'}">
+    Product Status: {{discontinued}} , {{discontinued? 'Product is not available': 'Product is available'}}
+</p>
+
+<div>
+    <p [ngStyle]="{
+    color:stockcount===0 ? 'red' : stockcount<5 ?'orange':'green',
+fontWeight:'bold',fontSize:stockcount<5 ? '18px' : '16px'
+}">
+{{stockcount===0 ? 'Out of stock' : stockcount<5? 'Only ' + stockcount + ' remaining' : 'Available In Stock'}}</p>
+
+
+<div >
+    <ul>
+        <li *ngFor="let item of items">
+            <span [ngStyle]="{
+                color: item.status=='completed'?'green':item.status=='New'?'orange':'blue'
+            }">{{item.name}}---{{item.status}}</span>
+        </li>
+    </ul>
+</div> 
+ 
+
+<div style="border:2px;background-color: aqua;">
+    <ul>
+        <li *ngFor="let item of items">
+           
+<span
+  [ngClass]="{
+    'newitems': item.status === 'New',
+    'completeditems': item.status === 'completed',
+    'itemsinprogress': item.status === 'InProgress'
+  }"
+>
+  {{ item.name }} — {{ item.status }}
+</span>
+
+        </li>
+    </ul>
+</div> 
+ 

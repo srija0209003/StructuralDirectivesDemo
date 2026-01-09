@@ -1,0 +1,26 @@
+<form>
+    <fieldset>
+        <legend>User login</legend>
+        <label for="username">Enter Username</label>
+        <input type="text" name="username" [(ngModel)]="username">
+        <br/>
+        <label for="password">Enter Password</label>
+        <input type="password" name="password" [(ngModel)]="password">
+        <br/>
+        <!-- <button (click)="login()" [disabled]="isloggedin">Login</button> -->
+        <button (click)="login()" *ngIf="!isloggedin">Login</button> 
+        <!-- <button (click)="logout()" [disabled]="isdisabled">Logout</button> -->
+         <button (click)="logout()" *ngIf="isloggedin">Logout</button>
+        <button *ngIf="!isloggedin">New User? Register</button>
+        
+       
+        <div [ngSwitch]="role" style="background-color: green; height:auto ;width: auto;">
+            <p *ngIf="isloggedin"> Welcome {{username}}</p>
+            <p *ngSwitchCase="'admin'">You are an Admin!</p>
+            <p *ngSwitchCase="'normaluser'">You are a User!</p>
+            <p *ngSwitchCase="'guest'">You are a Guest!</p>
+        </div> 
+        
+        
+    </fieldset>
+</form>

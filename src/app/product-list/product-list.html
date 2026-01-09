@@ -1,0 +1,16 @@
+<h1>Product List</h1>
+<div *ngFor="let prod of prodlist">
+    <app-product-buy [p]="prod" 
+        (purchased)="AddToCart($event)" 
+        (deleted)="RemoveFromCart($event)">
+    </app-product-buy>
+
+    <hr>
+
+</div>
+<h2>Products in Cart:</h2>
+<ul>
+    <li *ngFor="let cprod of boughtproducts">
+        {{cprod.prodid}} - {{cprod.prodname}}
+    </li>
+</ul>
